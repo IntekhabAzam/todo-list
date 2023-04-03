@@ -1,3 +1,4 @@
+// grab all elements 
 const nameInput = document.querySelector("#name")
 const todoForm = document.querySelector(".todo-form")
 const todoList = document.querySelector("#todo-list")
@@ -22,10 +23,6 @@ function displayUsername() {
 
 // display the todo in the DOM;
 function displayData(){
-    todoArr.sort((a, b) => {
-        if (a.todo < b.todo) return -1;
-        if (a.todo > b.todo) return 1;
-    })
 
     let displayData = todoArr.map((item) => {
         return `
@@ -57,8 +54,8 @@ function doneTodo(id) {
     displayData()
 }
 
-function editTodo(id) {
-    const editInput = document.querySelector(`[data-content="${id}"]`);
+function editTodo(editId) {
+    const editInput = document.querySelector(`[data-content="${editId}"]`);
     editInput.removeAttribute('readonly')
     editInput.focus();
 
@@ -67,7 +64,7 @@ function editTodo(id) {
         todoArr = todoArr.map(item => (
             {
                 ...item,
-                content: item.id == id ? e.target.value : item.content
+                content: item.id == editId ? e.target.value : item.content
             }
         ))
         setItems(todoArr)
