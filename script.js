@@ -123,7 +123,7 @@ todoForm.addEventListener("submit", (e) => {
         showNotification("Pick a valid category")
         return
     }
-    
+
     const todo = {
         content,
         category,
