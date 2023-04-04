@@ -115,6 +115,10 @@ todoForm.addEventListener("submit", (e) => {
     const content = e.target.elements.content.value;
     const category = e.target.elements.category.value;
 
+    if (content === ""){
+        showNotification("Enter a valid task")
+        return
+    }
     const todo = {
         content,
         category,
