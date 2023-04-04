@@ -36,6 +36,7 @@ body {
     max-width: 600px;
     width: 100%;
     margin: auto;
+    position: relative;
 }
 
 section {
@@ -222,6 +223,23 @@ input:checked ~ .bubble::after {
 .todo-item.done .todo-content input {
     text-decoration: line-through;
     color: var(--grey);
+}
+
+.notification {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 1.125rem;
+
+    opacity: 0;
+    
+    top: 27.65rem;
+    color: var(--danger);
+    transition: 200ms ease-in-out;
+}
+
+.notif-enter {
+    opacity: 1;
 }
 
 /* @media screen and (max-width: 480px) {

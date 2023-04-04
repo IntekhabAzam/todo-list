@@ -3,6 +3,7 @@ const nameInput = document.querySelector("#name")
 const todoForm = document.querySelector(".todo-form")
 const todoList = document.querySelector("#todo-list")
 const doneCheckbox = document.querySelector("todo-item label input")
+const notificationElement = document.querySelector(".notification")
 
 let todoArr = getItems();
 
@@ -98,11 +99,25 @@ function todoOperations(){
     });
 }
 
+function showNotification(msg) {
+    notificationElement.innerHTML = msg;
+
+    notificationElement.classList.add("notif-enter")
+
+    setTimeout(() => {
+        notificationElement.classList.remove("notif-enter")
+    }, 2000);
+}
+
 todoForm.addEventListener("submit", (e) => {
     e.preventDefault();
+
+    const content = e.target.elements.content.value;
+    const category = e.target.elements.category.value;
+
     const todo = {
-        content: e.target.elements.content.value,
-        category: e.target.elements.category.value,
+        content,
+        category,
         done: false,
         id: new Date().getTime()
     };
