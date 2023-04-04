@@ -119,6 +119,11 @@ todoForm.addEventListener("submit", (e) => {
         showNotification("Enter a valid task")
         return
     }
+    if (category === ""){
+        showNotification("Pick a valid category")
+        return
+    }
+    
     const todo = {
         content,
         category,
